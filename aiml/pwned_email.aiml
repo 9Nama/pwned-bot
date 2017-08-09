@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+    
+    <category>
+        <pattern>^ PWNED_EMAIL ^</pattern>
+        <template>
+            <srai>PWNED_VERIFY</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>VERIFICAR MEU E-MAIL</pattern>
+        <template>
+            <srai>PWNED_VERIFY</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>PWNED_VERIFY</pattern>
+        <template>
+            Qual seu e-mail?
+        </template>
+    </category>
+
+    <category>
+        <that>Qual seu e-mail</that>
+        <pattern>*</pattern>
+        <template>
+            <sraix>
+                <end_point>pwned/check</end_point>
+                <wait_for_response>true</wait_for_response>
+                <method>GET</method>
+                <email> <denormalize><star /></denormalize> </email>
+            </sraix>
+        </template>
+    </category>
+
+    <category>
+        <pattern>PWNED TOTAL * INFO *</pattern>
+        <template>    
+            Tiveram <star/> casos:
+            <star index="2"/>
+            Você deveria trocar suas senhas :)
+        </template>
+    </category>
+
+    <category>
+        <pattern>NO PWNED</pattern>
+        <template>
+            Não vazou nada! Você está seguro!
+        </template>
+    </category>
+  
+</aiml>

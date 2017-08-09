@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+  <category>
+    <pattern>^ CONVERSATION_GREETINGS ^</pattern>
+    <template>
+      Ola mundo! sou o seu primeiro bot!
+      <oob>
+        <choices>
+          <choice>
+            <value>Verificar meu e-mail</value>
+          </choice>
+          <choice>
+            <value>Tchau!</value>
+          </choice>
+        </choices>
+      </oob>
+    </template>
+  </category>
+</aiml>
